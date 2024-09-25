@@ -1,0 +1,5 @@
+directory: /tmp/records
+config: true
+debug: true
+log: true
+vcs: true

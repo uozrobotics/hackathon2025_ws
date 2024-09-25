@@ -1,0 +1,12 @@
+name: "base"
+configuration:
+  type: adap2e
+  model: fat
+records:
+  joint_states: true
+  controller/odom: true
+  controller/odometry: true
+  controller/kinematic: true
+simulation:
+  initial_xyz: [1.0, 0.0, 0.0]
+  initial_rpy: [0.0, 0.0, 0.0]

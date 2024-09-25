@@ -1,0 +1,30 @@
+x-yaml-anchors:  # create anchors "&something" that can be referenced using "*something"
+  base: &base
+    extends:
+      file: ../../docker/common.yaml
+      service: x11_base
+      # service: x11_gpu  # use this service if you want to use nvidia GPU
+    volumes:
+      - ./config:/config
+
+
+services:
+  bash:
+    <<: [*base]  # add elements of 'x-yaml-anchors.base'
+    profiles: [no]  # avoid starting this service when 'compose up'
+    command: bash --rcfile /etc/bash.bashrc
+
+  simulator:
+    <<: [*base]
+    command: >-
+      ros2 launch tirrex_demo simulator.launch.py
+        demo_config_directory:=/config
+        simulator_type:=gazebo
+
+  robot:
+    <<: [*base]
+    command: >-
+      ros2 launch tirrex_demo robot.launch.py
+        robot_configuration_directory:=/config/robot
+        robot_namespace:=robot
+        mode:=simulation_gazebo_classic
