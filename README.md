@@ -1,4 +1,9 @@
-## Installation
+This project corresponds to the workspace of the FIRA 2025 hackathon.
+It allows installing everything required to run the challenges and demos of the hackathon.
+It is based on the [TIRREX workspace](https://github.com/Tirrex-Roboterrium/tirrex_workspace)
+developed for the [_roboterrium_ platform of the TIRREX project](https://tirrex.fr/plateforme/roboterrium/).
+
+## Building
 
 ### Create workspace
 
@@ -8,6 +13,7 @@ pip install vcstool
 vcs --version
 ```
 
+If the `vcs` command is not found, follow [these instructions](#the-vcs-command-is-not-found).
 Clone this project and go to the root:
 ```
 git clone https://github.com/Tirrex-Roboterrium/tirrex_workspace.git
@@ -52,6 +58,9 @@ This command will:
   user in order to execute every command using the same user as the host system
 * run the `compile` service that execute a `catkin build` command to compile everything
 
+If you modify some packages of the workspace, you need to re-execute this command regularly.
+
+
 ## Installation (only for INRAE developers)
 
 If you are an INRAE developer with an access to the projects on gitlab.irstea.fr, you can use
@@ -70,38 +79,15 @@ docker compose run --rm --build compile
 
 ## Running
 
-You can run a simple simulation test that spawn a robot in Gazebo and can be controlled using a
-joypad.
-You just have to start one of the docker services corresponding to the robot name with the suffix
-`_test`.
-The currently available robots are `adap2e`, `campero`, `ceol`, `cinteo`, `hunter`, `husky`,
-`scout_mini` and `robufast`.
-For example, you can test `adap2e` using the command:
+You can run the hackathon demo by starting the services in `demos/hackathon`
 ```
-docker compose up adap2e_test
+cd demos/hackathon
+docker compose up
 ```
 
-Alternatively, you can start a docker service using `run` to avoid prefixes on output lines:
-```
-docker compose run --rm adap2e_test
-```
-
-All the available services are defined in the file [`compose.yaml`](compose.yaml).
-You can add your own services if you want to easily execute specific commands in the docker
-environment.
+More details in the [README of the demo](/demos/hackathon/README.md).
 
 ### Run other commands in docker
-
-If you want to execute a specific command, it is possible to specify it after `docker compose run`.
-For example, you can manually start `adap2e_test` using:
-```
-docker compose run --rm bash ros2 launch adap2e_bringup adap2e_test.launch.py
-```
-Every `ros2` commands are available.
-For example, it is possible to do `ros2 topic list` by executing
-```
-docker compose run --rm bash ros2 topic list
-```
 
 It is also possible to open a shell on the docker using the `bash` service:
 ```
@@ -127,24 +113,25 @@ Here is a brief presentation of the main directories:
 
 The docker image corresponds to an Ubuntu 22.04 image with a complete installation of ROS2 Humble
 and all the dependencies of the ROS2 packages of this workspace.
-The image is built from the [Dockerfile](docker/Dockerfile) and can be edited to add other ubuntu or
+The image is built from the [Dockerfile](docker/Dockerfile) and can be edited to add other Ubuntu or
 pip packages.
 
 When a docker service is started, this workspace is mounted as a volume inside the docker
 container and the ROS commands are run using your own Linux user.
 This makes using the tools in docker similar to using them directly.
-This means that, if you have ROS Humble on your host system, you should be able to direclty run ros2
+This means that, if you have ROS Humble on your host system, you should be able to directly run ros2
 commands without using docker commands.
 
 ### Organization of the ROS packages
 
 In the `src` directory, the packages are organized in several sub-folders:
 
-* `romea_core` contains all packages that are independant of ROS
+* `romea_core` contains all packages that are independent of ROS
 * `romea_ros2` contains all ROS2 packages (in several sub-folders)
 * `third_party` contains packages that are not written by our team
 
-For more details about this packages, read their README.
+For more details about these packages, read their README.
+
 
 ## Updating
 
@@ -153,8 +140,31 @@ You can update the ROS packages using:
 vcs pull -nw6
 ```
 
-If you want to update projects and re-download the gazebo models, you can re-run the installation
-script
+If you want to switch to the correct branches of the repos, you can re-run the installation script
 ```
 ./scripts/create_ws
 ```
+
+
+## FAQ
+
+### The `vcs` command is not found
+
+If you have installed this tools using `pip` or `pip3` outside a virtual env, then the executable
+are located in the `~/.local/bin` directory.
+You can make them available by adding this path into your `PATH` environment variable:
+```bash
+export PATH="$PATH:$HOME/.local/bin"
+```
+
+Alternatively, you can install `vcs` using `apt` (if you use Ubuntu)
+```
+sudo apt install python3-vcstool
+```
+
+### The service `compile` does not exist
+
+If you are in a subdirectory that contains a `compose.yaml` file, the `docker compose` command will
+load this file instead of the `compose.yaml` at the root of the workspace.
+The `compile` service is only defined in the one at the root, so you need to move to the root before
+executing `docker compose run --rm compile`.
