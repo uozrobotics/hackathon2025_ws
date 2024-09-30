@@ -274,3 +274,9 @@ repositories:
     type: git
     url: https://github.com/Romea-Third-Party/clearpath_config
     version: main
+
+  # -------- hackathon --------------------------
+  src/romea_ros2/tools/gazebo_classic_tools:
+    type: git
+    url: git@github.com:FiraHackathon/gazebo_classic_tools.git
+    version: main
