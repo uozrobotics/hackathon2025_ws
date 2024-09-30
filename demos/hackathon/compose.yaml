@@ -6,6 +6,7 @@ x-yaml-anchors:  # create anchors "&something" that can be referenced using "*so
       # service: x11_gpu  # use this service if you want to use nvidia GPU
     volumes:
       - ./config:/config
+      # - /tmp:/tmp  # uncomment to read generated files in /tmp
 
 
 services:
@@ -17,14 +18,11 @@ services:
   simulator:
     <<: [*base]
     command: >-
-      ros2 launch tirrex_demo simulator.launch.py
+      ros2 launch tirrex_demo demo.launch.py
         demo_config_directory:=/config
-        simulator_type:=gazebo
-
-  robot:
-    <<: [*base]
-    command: >-
-      ros2 launch tirrex_demo robot.launch.py
-        robot_configuration_directory:=/config/robot
-        robot_namespace:=robot
         mode:=simulation_gazebo_classic
+        robot_namespace:=robot
+        localisation:=false
+        record:=false
+        demo:=hackathon
+        demo_timestamp:=%F_%T
