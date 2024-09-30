@@ -3,6 +3,16 @@ It allows installing everything required to run the challenges and demos of the 
 It is based on the [TIRREX workspace](https://github.com/Tirrex-Roboterrium/tirrex_workspace)
 developed for the [_roboterrium_ platform of the TIRREX project](https://tirrex.fr/plateforme/roboterrium/).
 
+
+## Contents
+
+* [Installation](#installation)
+* [Installation(for INRAE developers)](#installation-only-for-inrae-developers)
+* [Usage](#usage)
+* [Architecture of the workspace](#architecture-of-the-workspace)
+* [FAQ](#faq)
+
+
 ## Installation
 
 ### Create workspace
@@ -77,7 +87,7 @@ docker login gitlab-registry.irstea.fr -u tirrex -p v2_neDvAkk3qeZEg6ABz
 docker compose run --rm --build compile
 ```
 
-## Running
+## Usage
 
 You can run the hackathon demo by starting the services in `demos/hackathon`
 ```
@@ -95,6 +105,19 @@ docker compose run --rm bash
 ```
 
 The option `--rm` allows to automatically delete the container when the command finishes.
+
+### Updating
+
+You can update the ROS packages using:
+```
+vcs pull -nw6
+```
+
+If you want to update repostories, switch to the correct branches of, and update gazebo models, you
+can re-run the installation script
+```
+./scripts/create_ws
+```
 
 
 ## Architecture of the workspace
@@ -131,19 +154,6 @@ In the `src` directory, the packages are organized in several sub-folders:
 * `third_party` contains packages that are not written by our team
 
 For more details about these packages, read their README.
-
-
-## Updating
-
-You can update the ROS packages using:
-```
-vcs pull -nw6
-```
-
-If you want to switch to the correct branches of the repos, you can re-run the installation script
-```
-./scripts/create_ws
-```
 
 
 ## FAQ
