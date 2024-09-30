@@ -168,3 +168,43 @@ If you are in a subdirectory that contains a `compose.yaml` file, the `docker co
 load this file instead of the `compose.yaml` at the root of the workspace.
 The `compile` service is only defined in the one at the root, so you need to move to the root before
 executing `docker compose run --rm compile`.
+
+### How to use NVIDIA GPU?
+
+You need to install the [NVIDIA container
+toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html).
+
+After that, edit the file `compose.yaml` of your demo to replace the service `x11_base` by
+`x11_gpu`.
+For example, the beginning of `demos/hackathon/compose.yaml` should look like to this:
+```yaml
+x-yaml-anchors:
+  base: &base
+    extends:
+      file: ../../docker/common.yaml
+      service: x11_gpu
+    ...
+```
+These services are defined in the file `docker/common.yaml` of the workspace and provide all the
+required docker options.
+The `x11_gpu` service add special options to use the NVIDIA GPUs.
+
+### Gazebo is slow
+
+You can check the simulator performance by looking at the _FPS_ (frame per seconds) value at the
+bottom of the gazebo window.
+The simulator is configured to run at 60 FPS, but you may experience slow down if your computer is
+not powerful enough.
+If you have a GPU, you can refer to [How to use NVIDIA GPU?](#how-to-use-nvidia-gpu).
+If you do not have one, you can try disabling shadows by following instructions of [Gazebo is
+dark](#gazebo-is-dark).
+You can also try to tune the physics engine (in the `Physics` component of gazebo), but it will also
+degrade its behavior.
+
+### Gazebo is dark
+
+When using Gazebo with no GPU, you may experience a graphical bug that seems to cause rendering to
+be darker than it should be.
+This is due to the fact that shadow calculation is buggy with Intel graphics chipsets.
+You can disable shadow rendering by clicking on `Scene`, then unchecking `shadows`.
+If it is already unchecked, check it and uncheck it again (this is another bug).

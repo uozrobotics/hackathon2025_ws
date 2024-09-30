@@ -37,25 +37,3 @@ If you want to open execute some ROS command, you can open a shell in the ROS2 e
 docker compose run --rm bash
 ```
 The `--rm` options deletes the container when the shell is closed.
-
-
-## FAQ
-
-### How to use NVIDIA GPU?
-
-You need to install the [NVIDIA container toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html).
-
-After that, edit the file `compose.yaml` to replace the service `x11_base` by `x11_gpu`.
-The beginning of the file must look like this:
-```yaml
-x-yaml-anchors:  # create anchors "&something" that can be referenced using "*something"
-  base: &base
-    extends:
-      file: ../../docker/common.yaml
-      service: x11_gpu
-    ...
-```
-These services are defined in the file `docker/common.yaml` of the workspace and provide all the
-required docker options.
-The `x11_gpu` service add special options to use the NVIDIA GPUs.
-
