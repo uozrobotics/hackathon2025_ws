@@ -3,7 +3,7 @@ It allows installing everything required to run the challenges and demos of the 
 It is based on the [TIRREX workspace](https://github.com/Tirrex-Roboterrium/tirrex_workspace)
 developed for the [_roboterrium_ platform of the TIRREX project](https://tirrex.fr/plateforme/roboterrium/).
 
-## Building
+## Installation
 
 ### Create workspace
 
@@ -16,8 +16,8 @@ vcs --version
 If the `vcs` command is not found, follow [these instructions](#the-vcs-command-is-not-found).
 Clone this project and go to the root:
 ```
-git clone https://github.com/Tirrex-Roboterrium/tirrex_workspace.git
-cd tirrex_workspace
+git clone https://github.com/FiraHackathon/hackathon2025_ws.git
+cd hackathon2025_ws
 ```
 
 All the following commands must be run from the root of this project.
@@ -69,8 +69,8 @@ To do that, you have to add `REPOS_FILE` in the `.env` file before creating the 
 building the docker image.
 Execute the following commands:
 ```bash
-git clone git@gitlab-ssh.irstea.fr:romea_projects/tirrex/tirrex_workspace.git
-cd tirrex_workspace
+git clone git@github.com:FiraHackathon/hackathon2025_ws.git
+cd hackathon2025_ws
 echo 'REPOS_FILE=repositories.private' >> .env
 ./scripts/create_ws
 docker login gitlab-registry.irstea.fr -u tirrex -p v2_neDvAkk3qeZEg6ABz
