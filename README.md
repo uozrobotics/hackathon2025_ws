@@ -29,7 +29,7 @@ Execute this script to clone all the ROS packages and download the gazebo models
 ### Build the docker image and compile
 
 The recommended method for compiling the workspace and running the programs is to use docker.
-If you do not want to use docker and you are using Ubuntu 22.04 and ROS Humble, you can skip these
+If you do not want to use docker, and you are using Ubuntu 22.04 and ROS Humble, you can skip these
 steps and directly use `colcon` and `ros2` commands.
 However, the following instructions assume that docker is being used.
 
@@ -53,7 +53,7 @@ After that, you can build the image (the first time) and compile the workspace:
 docker compose run --rm compile
 ```
 This command will:
-* pull the lastest image containing a ROS environment with all the workspace dependencies installed
+* pull the latest image containing a ROS environment with all the workspace dependencies installed
 * build a local image based on the previous one but including a copy of your local
   user in order to execute every command using the same user as the host system
 * run the `compile` service that execute a `catkin build` command to compile everything
@@ -63,7 +63,7 @@ If you modify some packages of the workspace, you need to re-execute this comman
 
 ## Installation (only for INRAE developers)
 
-If you are an INRAE developer with an access to the projects on gitlab.irstea.fr, you can use
+If you are an INRAE developer with access to the projects on gitlab.irstea.fr, you can use
 alternative repositories with ssh URLs.
 To do that, you have to add `REPOS_FILE` in the `.env` file before creating the workspace and
 building the docker image.

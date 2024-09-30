@@ -53,13 +53,13 @@ import_gazebo_models() {
         fi
         rm "${archive}"
     else
-        echo "  already up-to-date"
+        echo "  models are up-to-date"
         rm "${remote_hash}"
     fi
 }
 
 
 initialize_env_file
-# import_packages
+import_packages
 import_gazebo_models
 echo 'Installation completed successfully'
