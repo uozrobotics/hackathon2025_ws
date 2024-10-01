@@ -18,11 +18,7 @@ services:
   simulator:
     <<: [*base]
     command: >-
-      ros2 launch tirrex_demo demo.launch.py
+      ros2 launch hackathon_bringup simulator.launch.py
         demo_config_directory:=/config
         mode:=simulation_gazebo_classic
         robot_namespace:=robot
-        localisation:=false
-        record:=false
-        demo:=hackathon
-        demo_timestamp:=%F_%T

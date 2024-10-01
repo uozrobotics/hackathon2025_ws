@@ -280,3 +280,7 @@ repositories:
     type: git
     url: git@github.com:FiraHackathon/gazebo_classic_tools.git
     version: main
+  src/romea_ros2/demos/hackathon_bringup:
+    type: git
+    url: git@github.com:FiraHackathon/hackathon_bringup.git
+    version: main
