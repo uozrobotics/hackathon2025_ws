@@ -1,34 +1,8 @@
 #!/bin/bash
+MODELS_ARCHIVE='hackathon2025.tar.xz'
+
 set -e
 cd "$(dirname -- "${BASH_SOURCE[0]}")/.."
-
-MODELS_ARCHIVE='hackathon2025.tar.xz'
-REPOS_FILE='repositories'
-
-if [[ -r '.env' ]] ; then
-    eval $(grep -v '^[UG]ID=' .env)
-fi
-
-
-add_variable_to_env_file() {
-    if ! grep -q "$1=" .env 2>/dev/null ; then
-        echo "  - Add $1=$2 to .env"
-        echo "$1=$2" >>.env
-    fi
-}
-
-initialize_env_file() {
-    echo 'Initialize ".env" file'
-    add_variable_to_env_file UID "$(id -u)"
-    add_variable_to_env_file GID "$(id -g)"
-    add_variable_to_env_file USER "$(whoami)"
-    add_variable_to_env_file WORKSPACE "$(pwd)"
-}
-
-import_packages() {
-    echo 'Import packages'
-    vcs import --force --recursive -w6 <"docker/$REPOS_FILE"
-}
 
 import_gazebo_models() {
     echo 'Import gazebo models'
@@ -58,8 +32,4 @@ import_gazebo_models() {
     fi
 }
 
-
-initialize_env_file
-import_packages
 import_gazebo_models
-echo 'Installation completed successfully'

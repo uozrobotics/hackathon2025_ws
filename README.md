@@ -33,7 +33,7 @@ cd hackathon2025_ws
 All the following commands must be run from the root of this project.
 Execute this script to clone all the ROS packages and download the gazebo models:
 ```
-./scripts/create_ws
+./scripts/update_ws
 ```
 
 ### Build the docker image and compile
@@ -82,7 +82,7 @@ Execute the following commands:
 git clone git@github.com:FiraHackathon/hackathon2025_ws.git
 cd hackathon2025_ws
 echo 'REPOS_FILE=repositories.private' >> .env
-./scripts/create_ws
+./scripts/update_ws
 docker login gitlab-registry.irstea.fr -u tirrex -p v2_neDvAkk3qeZEg6ABz
 docker compose run --rm --build compile
 ```
@@ -113,10 +113,10 @@ You can update the ROS packages using:
 vcs pull -nw6
 ```
 
-If you want to update repostories, switch to the correct branches of, and update gazebo models, you
+If you want to update repositories, switch to the correct branches of, and update gazebo models, you
 can re-run the installation script
 ```
-./scripts/create_ws
+./scripts/update_ws
 ```
 
 
