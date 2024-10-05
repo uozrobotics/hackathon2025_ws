@@ -1,2 +1,2 @@
-world_package: gazebo
-world_name: farm.world
+world_package: hackathon_bringup
+world_name: demo.world

@@ -8,5 +8,5 @@ records:
   controller/odometry: true
   controller/kinematic: true
 simulation:
-  initial_xyz: [1.0, 0.0, 0.0]
-  initial_rpy: [0.0, 0.0, 0.0]
+  initial_xyz: [135.315, 134.135, 0.88]
+  initial_rpy: [0.0, 0.0, -2.825]
