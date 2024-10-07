@@ -33,29 +33,9 @@ services:
     <<: *x11
     command: 'ros2 launch alpo_bringup alpo_test.launch.py'
     
-  campero_test:
-    <<: *x11
-    command: 'ros2 launch campero_bringup campero_test.launch.py'
-    
   ceol_test:
     <<: *x11
     command: 'ros2 launch ceol_bringup ceol_test.launch.py'
-    
-  cinteo_test:
-    <<: *x11
-    command: 'ros2 launch cinteo_bringup cinteo_test.launch.py'
-  
-  hunter_test:
-    <<: *x11
-    command: 'ros2 launch hunter_bringup hunter_test.launch.py'
-
-  husky_test:
-    <<: *x11
-    command: 'ros2 launch husky_bringup husky_test.launch.py'
-    
-  scout_mini_test:
-    <<: *x11
-    command: 'ros2 launch scout_bringup scout_test.launch.py model:=mini'
     
   robufast_test:
     <<: *x11
