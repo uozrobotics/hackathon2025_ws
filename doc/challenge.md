@@ -46,7 +46,7 @@ If you rewrite `path_matching`, you will need to load the provided path file you
 This file is written using the [TIARA trajectory
 format](https://github.com/Romea/romea-ros-path-tools/blob/main/doc/tiara_format.md).
 Some tools are provided in the [`romea_path_tools`](https://github.com/Romea/romea-ros-path-tools)
-package to visualize, convert or easily generate paths in this format using its python library.
+package to visualize, convert or generate paths in this format using its python library.
 
 
 ### Weeding the agricultural plot
@@ -56,10 +56,36 @@ You need to use the weeder to treat the entire plot.
 However, you'll need to have a good perception of the crop rows to avoid driving over them because
 the lines are not straight.
 There is also an obstacle in the ground which requires to lift the implement of the robot.
-Collisions with crops and implement will cause a malus in the score. 
+Collisions with crops and implement will result in penalties to the score. 
+
 
 ### Avoiding obstacles
 
+Obstacles are placed all along the trajectory (except in the field).
+Some are static and prevent the robot from following its path.
+Some are mobile and move cross the robot path.
+There are also moving obstacles that can be represented by humans or other robots.
+Thus, you need to use the exteroceptive sensors of the robot and compute an avoidance path in real
+time.
+The sensors are described in the [robot interface documentation](doc/robot_interface.md).
+Collisions with obstacles or any element of the environment will result in penalties to the score.
+
+
 ### Indoor localization
 
-### Robot control on slopping terrain
+A part of the robot's trajectory passes inside a building.
+To best represent reality, we simulate a loss of the GNSS signal when the robot enters the building
+by causing a random offset in the estimated position.
+For the final phase, the 4DV simulator performs a more realistic GNSS simulation by simulating the
+signal bouncing off the walls of the buildings.
+You will therefore need to take this degradation into account and try to maintain good localization
+by relying on the robot's other sensors.
+
+
+### Robot control on sloping terrain
+
+Another part of the trajectory passes through a sloped area.
+The goal of this part of the challenge is to control the robot so that it stays as close as possible
+to the reference trajectory, despite the slippery terrain.
+The score will be calculated based on the measurement of the lateral deviation, as measured by the
+`path_matching` node.
