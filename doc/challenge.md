@@ -61,7 +61,7 @@ Collisions with crops and implement will result in penalties to the score.
 
 ### Avoiding obstacles
 
-Obstacles are placed all along the trajectory (except in the field).
+Obstacles are placed all along the trajectory (except in the field and the sloping area).
 Some are static and prevent the robot from following its path.
 Some are mobile and move cross the robot path.
 There are also moving obstacles that can be represented by humans or other robots.
@@ -89,3 +89,15 @@ The goal of this part of the challenge is to control the robot so that it stays 
 to the reference trajectory, despite the slippery terrain.
 The score will be calculated based on the measurement of the lateral deviation, as measured by the
 `path_matching` node.
+
+
+## Score calculation
+
+The score calculation is based on:
+* the total time to reach the end of the path
+* the distance of the robot to the path (except in the crops field)
+* the surface covered by the weeder in the field
+
+There is also different source of penalties:
+
+TODO: write the penalties
