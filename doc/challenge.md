@@ -10,7 +10,7 @@ It is composed of the following steps:
 * robot control and stability on sloping terrain.
 * Implement management
 
-During the preliminary phase, you will use a simulation environment based on classical Gazebo
+During the preliminary phase, you will use a simulation environment based on _Gazebo Classic_
 simulator.
 This environment corresponds to a farm containing a crop field, a robot you control and various
 elements.
@@ -35,7 +35,8 @@ However, there will be a penalty when calculating the score.
 
 We provide the path that the robot have to follow throughout the challenge.
 This path passes through the farm plot, a building and a sloping area.
-The trajectory does not exactly fit the crop rows in the plot. As a result, following perfectly the absolute path will lead to crushing plants of interest
+The trajectory does not exactly fit the crop rows in the plot. As a result, following perfectly the
+absolute path will lead to crushing plants of interest.
 We also provide some ROS nodes:
 * `robot_to_world_localisation` to fuse odometry, GNSS and IMU using a Kalman filter
 * `path_matching` to compute the lateral and angular deviation to the path
