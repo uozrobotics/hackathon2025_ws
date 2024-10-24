@@ -22,3 +22,12 @@ services:
         demo_config_directory:=/config
         mode:=simulation_gazebo_classic
         robot_namespace:=robot
+
+  localisation:
+    <<: [*base]
+    command: >-
+      ros2 launch tirrex_demo robot_localisation.launch.py
+        demo_config_directory:=/config
+        robot_config_directory:=/config/robot
+        mode:=simulation_gazebo_classic
+        robot_namespace:=robot
