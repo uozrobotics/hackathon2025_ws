@@ -2,8 +2,8 @@ x-yaml-anchors:  # create anchors "&something" that can be referenced using "*so
   base: &base
     extends:
       file: ../../docker/common.yaml
-      service: x11_base
-      # service: x11_gpu  # use this service if you want to use nvidia GPU
+      # service: x11_base
+      service: x11_gpu  # use this service if you want to use nvidia GPU
     volumes:
       - ./config:/config
       # - /tmp:/tmp  # uncomment to read generated files in /tmp
@@ -47,6 +47,7 @@ services:
   path_recorder:  # record a trajectory file from the current localization
     <<: [*base]
     depends_on: [localisation]
+    profiles: [no]
     command: >-
       ros2 launch tirrex_demo robot_path_recorder.launch.py
         demo_config_directory:=/config
@@ -54,3 +55,9 @@ services:
         mode:=simulation_gazebo_classic
         robot_namespace:=robot
         trajectory_filename:=/config/paths/recorded.traj
+
+  robot_view:  # open a third-person view of the robot
+    <<: [*base]
+    depends_on: [simulator]
+    profiles: [no]
+    command: ros2 run rqt_image_view rqt_image_view /robot/robot_view/image_raw

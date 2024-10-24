@@ -1,6 +1,11 @@
+# This file allows to enable / disable sensors of the robot. It is also possible to add new sensor
+# by adding lines in this file and creating the corresponding file in the "devices" directory.
+# Possible values for 'available_mode': [none, simulation, live, all]
+
 remote_controller:
   type: joystick
   available_mode: all
+
 lms151:
   type: lidar
   available_mode: none
@@ -10,15 +15,15 @@ septentrio:
 xsens:
   type: imu
   available_mode: all
-axis:
-  type: camera
-  available_mode: none
-zed1:
-  type: stereo_camera
-  available_mode: none
 realsense:
   type: rgbd_camera
-  available_mode: none
+  available_mode: all
+
 cultivator:
   type: implement
+  available_mode: all
+
+# add a camera to look at the robot using a third-person view
+robot_view:
+  type: camera
   available_mode: all

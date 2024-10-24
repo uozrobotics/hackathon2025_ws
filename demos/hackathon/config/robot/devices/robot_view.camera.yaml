@@ -1,0 +1,13 @@
+name: robot_view
+configuration:
+  type: axis
+  model: p1346 
+  resolution: 1280x720
+geometry:
+  parent_link: base_link
+  xyz: [-4.5, 0.0, 2.7]
+  rpy: [0.0, 22.0, 0.0]
+records:
+  camera_info: false
+  image_raw: false
+
