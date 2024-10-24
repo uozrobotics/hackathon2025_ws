@@ -6,7 +6,7 @@ longitudinal_control:
 
 # configuration for classic and predictive lateral control laws
 lateral_control:
-  selected: predictive
+  selected: classic
   classic:
     gains:
       front_kd: 0.7
@@ -24,7 +24,7 @@ lateral_control:
 
 # control setpoint
 setpoint:
-  desired_linear_speed: 1.0
+  desired_linear_speed: 2.0
   desired_lateral_deviation: 0.0
   desired_course_deviation: 0.0
 

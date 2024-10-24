@@ -10,12 +10,12 @@ x-yaml-anchors:  # create anchors "&something" that can be referenced using "*so
 
 
 services:
-  bash:
+  bash:  # this service can be used to open a shell in the ROS2 environment
     <<: [*base]  # add elements of 'x-yaml-anchors.base'
     profiles: [no]  # avoid starting this service when 'compose up'
     command: bash --rcfile /etc/bash.bashrc
 
-  simulator:
+  simulator:  # start the simulator and spawn the robot
     <<: [*base]
     command: >-
       ros2 launch hackathon_bringup simulator.launch.py
@@ -23,8 +23,9 @@ services:
         mode:=simulation_gazebo_classic
         robot_namespace:=robot
 
-  localisation:
+  localisation:  # compute absolute localization using GNSS, IMU and odometry measurements
     <<: [*base]
+    depends_on: [simulator]
     command: >-
       ros2 launch tirrex_demo robot_localisation.launch.py
         demo_config_directory:=/config
@@ -32,18 +33,20 @@ services:
         mode:=simulation_gazebo_classic
         robot_namespace:=robot
 
-  path_following:
+  path_following:  # control the robot to follow the specified trajectory file
     <<: [*base]
+    depends_on: [localisation]
     command: >-
-      ros2 launch tirrex_demo robot_path_recorder.launch.py
+      ros2 launch tirrex_demo robot_path_following.launch.py
         demo_config_directory:=/config
         robot_config_directory:=/config/robot
         mode:=simulation_gazebo_classic
         robot_namespace:=robot
-        trajectory_filename:=challenge.traj
+        trajectory_filename:=test01.traj
 
-  path_recorder:
+  path_recorder:  # record a trajectory file from the current localization
     <<: [*base]
+    depends_on: [localisation]
     command: >-
       ros2 launch tirrex_demo robot_path_recorder.launch.py
         demo_config_directory:=/config
