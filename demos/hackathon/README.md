@@ -41,8 +41,8 @@ docker compose run bash
 ### Re-starting already created containers
 
 The command `up` allows creating the containers and starting them.
-After the containers are created, you can use `start` and `stop` command to control the different
-services.
+After the containers are created, you can use `start` command to run one or several services in
+detached mode and `stop` command to stop them.
 At the end, if you want to remove the containers, you can use the `down` command.
 
 
