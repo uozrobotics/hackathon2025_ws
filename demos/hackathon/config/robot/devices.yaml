@@ -19,3 +19,6 @@ zed1:
 realsense:
   type: rgbd_camera
   available_mode: none
+cultivator:
+  type: implement
+  available_mode: all
