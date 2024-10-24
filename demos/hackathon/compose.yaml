@@ -31,3 +31,23 @@ services:
         robot_config_directory:=/config/robot
         mode:=simulation_gazebo_classic
         robot_namespace:=robot
+
+  path_following:
+    <<: [*base]
+    command: >-
+      ros2 launch tirrex_demo robot_path_recorder.launch.py
+        demo_config_directory:=/config
+        robot_config_directory:=/config/robot
+        mode:=simulation_gazebo_classic
+        robot_namespace:=robot
+        trajectory_filename:=challenge.traj
+
+  path_recorder:
+    <<: [*base]
+    command: >-
+      ros2 launch tirrex_demo robot_path_recorder.launch.py
+        demo_config_directory:=/config
+        robot_config_directory:=/config/robot
+        mode:=simulation_gazebo_classic
+        robot_namespace:=robot
+        trajectory_filename:=/config/paths/recorded.traj
