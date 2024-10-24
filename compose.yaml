@@ -3,13 +3,13 @@ x-extends:
     extends:
       file: docker/common.yaml
       service: x11_base
-    profiles: [no]
+    profiles: [optional]
 
   base: &base
     extends:
       file: docker/common.yaml
       service: base
-    profiles: [no]
+    profiles: [optional]
 
 
 services:

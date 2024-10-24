@@ -27,13 +27,35 @@ This command can be interrupted by typing _Ctrl+C_ and can be executed again whi
 simulator open.
 When you no longer need the simulator, you can stop it with
 ```
-docker compose down simulator
+docker compose stop simulator
 ```
 
 ### Opening a shell in the docker
 
 If you want to open execute some ROS command, you can open a shell in the ROS2 environment using
 ```
-docker compose run --rm bash
+docker compose run bash
 ```
-The `--rm` options deletes the container when the shell is closed.
+
+
+### Re-starting already created containers
+
+The command `up` allows creating the containers and starting them.
+After the containers are created, you can use `start` and `stop` command to control the different
+services.
+At the end, if you want to remove the containers, you can use the `down` command.
+
+
+### Services with `profiles: [optional]` attribute
+
+The services that specify a `profiles` attribute are not enabled by default.
+Usually, this parameter is used to start certain services by specifying the profile name on the
+command line with the `-p optional` option.
+In our case, this is used to disable automatic startup of these services.
+If you want to start them, you have to specify their name in the command line.
+For example, to start the view of the robot, you can have to execute
+```
+docker compose up -d robot_view
+```
+This will also start the simulator (because of the `depends_on` attribute) if it is not already
+started.
