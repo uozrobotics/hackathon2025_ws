@@ -6,7 +6,7 @@ control:
       pkg: romea_implement_bringup
       file: config/hitch_controller_manager.yaml
   controllers:
-    selected: [forward_position_controller]
+    selected: [position_controller]
     configuration:
       pkg: romea_implement_bringup
       file: config/hitch_controllers.yaml

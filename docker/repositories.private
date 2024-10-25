@@ -43,7 +43,7 @@ repositories:
   src/romea_core/romea_path:
     type: git
     url: git@gitlab-ssh.irstea.fr:romea_core/romea_path.git
-    version: multi
+    version: main
   src/romea_core/romea_path_matching:
     type: git
     url: git@gitlab-ssh.irstea.fr:romea_core/romea_path_matching.git
@@ -103,7 +103,7 @@ repositories:
   src/romea_ros2/interfaces/vehicles/adap2e:
     type: git
     url: git@gitlab-ssh.irstea.fr:romea_ros2/interfaces/vehicles/adap2e.git
-    version: implement
+    version: main
   src/romea_ros2/interfaces/vehicles/alpo:
     type: git
     url: git@gitlab-ssh.irstea.fr:romea_ros2/interfaces/vehicles/alpo.git
