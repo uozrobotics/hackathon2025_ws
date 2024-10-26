@@ -19,11 +19,21 @@ developed for the [_roboterrium_ platform of the TIRREX project](https://tirrex.
 
 You need to install `vcstool`. You can install it using pip:
 ```
-pip install vcstool
+pip3 install vcstool
 vcs --version
 ```
 
-If the `vcs` command is not found, follow [these instructions](#the-vcs-command-is-not-found).
+If the `vcs` command is not found, you can follow [these
+instructions](#the-vcs-command-is-not-found).
+Alternatively, if you use Ubuntu 20 or 22, you can install `vcs` using `apt`:
+```
+sudo apt install python3-vcstool
+```
+and for Ubuntu 24, the package is now named `vcstool`:
+```
+sudo apt install vcstool
+```
+
 Clone this project and go to the root:
 ```
 git clone https://github.com/FiraHackathon/hackathon2025_ws.git
@@ -51,7 +61,22 @@ command:
 docker compose version
 ```
 
-Since the docker image is hosted in a private repository, you must first log docker in to the
+By default, running docker is only available for root user.
+You have to add your user to the `docker` group (and create it if it does not exist) to execute
+docker commands with your own user.
+```
+sudo groupadd docker
+sudo usermod -aG docker $USER
+```
+Bear in mind that by executing these commands, you are giving your user privileges equivalent to
+those of root using docker commands.
+For more details, see [Docker Daemon Attack
+Surface](https://docs.docker.com/engine/security/#docker-daemon-attack-surface)
+
+Once your user is added to the `docker` group, you need to reboot (or log out / log in and restart
+the docker daemon).
+
+Since the docker image is hosted in a private repository, you must first log in to the
 registry server.
 You can do it using this access token:
 ```
@@ -167,10 +192,6 @@ You can make them available by adding this path into your `PATH` environment var
 export PATH="$PATH:$HOME/.local/bin"
 ```
 
-Alternatively, you can install `vcs` using `apt` (if you use Ubuntu)
-```
-sudo apt install python3-vcstool
-```
 
 ### The service `compile` does not exist
 
