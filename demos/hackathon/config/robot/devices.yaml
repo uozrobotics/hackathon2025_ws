@@ -9,6 +9,9 @@ remote_controller:
 lms151:
   type: lidar
   available_mode: none
+ouster:
+  type: lidar
+  available_mode: all
 septentrio:
   type: gps
   available_mode: all

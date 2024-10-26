@@ -1,4 +1,4 @@
-name: "lidar"
+name: "lidar2d"
 driver:
   package: "sick_scan"
   executable: "sick_generic_caller"
