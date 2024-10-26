@@ -20,6 +20,7 @@ services:
     command: >-
       ros2 launch hackathon_bringup simulator.launch.py
         demo_config_directory:=/config
+        robot_config_directory:=/config/robot
         mode:=simulation_gazebo_classic
         robot_namespace:=robot
 
