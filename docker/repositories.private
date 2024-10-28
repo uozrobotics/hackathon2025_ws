@@ -231,5 +231,9 @@ repositories:
     type: git
     url: git@github.com:FiraHackathon/hackathon_bringup.git
     version: main
+  src/romea_ros2/tools/hackathon_evaluation:
+    type: git
+    url: git@github.com:FiraHackathon/hackathon_evaluation.git
+    version: main
 
 # vim: ft=yaml

@@ -28,7 +28,7 @@ initialize_env_file() {
 
 import_packages() {
     echo 'Import packages'
-    vcs import --force --recursive -w6 <"docker/$REPOS_FILE"
+    vcs import --recursive -w6 <"docker/$REPOS_FILE"
 }
 
 
