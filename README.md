@@ -222,15 +222,18 @@ The `x11_gpu` service add special options to use the NVIDIA GPUs.
 
 ### Gazebo is slow
 
-You can check the simulator performance by looking at the _FPS_ (frame per seconds) value at the
-bottom of the gazebo window.
-The simulator is configured to run at 60 FPS, but you may experience slow down if your computer is
-not powerful enough.
-If you have a GPU, you can refer to [How to use NVIDIA GPU?](#how-to-use-nvidia-gpu).
-If you do not have one, you can try disabling shadows by following instructions of [Gazebo is
-dark](#gazebo-is-dark).
-You can also try to tune the physics engine (in the `Physics` component of gazebo), but it will also
-degrade its behavior.
+Gazebo comprises a physics engine (`gzserver` program) and a rendering engine (`gzclient` program).
+You can check the rendering performance by looking at the _FPS_ (frame per seconds) value at the
+bottom of the gazebo window, and the physics performance by looking at the _real time factor_.
+The rendering engine is configured to run at 60 FPS and a real time factor of 1.0, but you may
+experience slow down if your computer is not powerful enough.
+By default, the docker does not use NVIDIA GPU, but it can significantly improve gazebo performance
+to use it.
+If you have one, you can refer to [How to use NVIDIA GPU?](#how-to-use-nvidia-gpu).
+If you do not have one, you can increase FPS by disabling shadows by following instructions of
+[Gazebo is dark](#gazebo-is-dark).
+You can also improve the _real time factor_ by increasing `max_step_size` in the `Physics` component
+of gazebo, but it will also degrade its behavior.
 
 ### Gazebo is dark
 
