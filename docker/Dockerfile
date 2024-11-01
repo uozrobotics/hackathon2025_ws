@@ -53,6 +53,10 @@ RUN --mount=type=cache,target=/var/lib/apt/lists \
     rosdep install -iyr --from-paths src && \
     rm -rf /var/lib/apt/lists/*
 
+# fix a bug when rendering shadows in gazebo
+RUN sed -i '7i \ \ depth += 0.001;  // added to fix a bug' \
+   /usr/share/gazebo-11/media/materials/programs/shadow_caster_fp.glsl
+
 # multi-stage for developing
 FROM installer as dever
 
@@ -65,11 +69,3 @@ RUN rm -rf "$WORKSPACE"
 COPY --chmod=755 ros_entrypoint.sh ros_setup.sh /
 
 RUN echo 'source <(register-python-argcomplete3 ros2)' >>/etc/bash.bashrc
-
-# add the host user in the docker image
-# ARG USER
-# ARG GID
-# ARG UID
-# ARG HOME
-# RUN groupadd -g $GID $USER && \
-#     useradd -u $UID -g $GID -s /bin/bash -d $HOME -G dialout $USER
