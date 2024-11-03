@@ -69,4 +69,10 @@ services:
     depends_on: [simulator]
     command: >-
       ros2 launch hackathon_bringup evaluation.launch.py
+        demo_config_directory:=/config
         robot_namespace:=robot
+
+  rviz:  # start evaluation nodes and publish information for rviz
+    <<: [*base]
+    depends_on: [simulator]
+    command: rviz2 -d /config/evaluation.rviz
