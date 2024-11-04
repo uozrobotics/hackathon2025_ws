@@ -217,6 +217,10 @@ repositories:
     type: git
     url: https://github.com/Romea-Third-Party/bluespace_ai_xsens_ros_mti_driver.git
     version: romea
+  src/third_party/rviz_2d_overlay_plugins:
+    type: git
+    url: https://github.com/teamspatzenhirn/rviz_2d_overlay_plugins.git
+    version: main
 
   # -------- hackathon --------------------------
   src/romea_ros2/tools/gazebo_classic_tools:
