@@ -54,6 +54,10 @@ repositories:
     version: main
 
   # -------- ros2 device interfaces --------------------------
+  src/romea_ros2/interfaces/implements/romea_implement:
+    type: git
+    url: https://github.com/Romea/romea-ros2-implement.git
+    version: main
   src/romea_ros2/interfaces/manipulators/romea_arm:
     type: git
     url: https://github.com/Romea/romea-ros2-arm.git
