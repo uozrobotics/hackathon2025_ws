@@ -25,18 +25,24 @@ The latter will run on a dedicated machine and provide more realistic sensor inf
 However, the robot interface will stay the same.
 
 You don't have to develop a solution capable of solving every challenge.
-In fact, you can pilot the robot manually whenever you like.
-However, there will be a penalty when calculating the score.
+The difficulty level will increase progressively.
 
 
 ## Details of the different steps
 
 ### Follow a path
 
-We provide the path that the robot have to follow throughout the challenge.
+We provide a reference path that the robot have to follow throughout the challenge.
 This path passes through the farm plot, a building and a sloping area.
-The trajectory does not exactly fit the crop rows in the plot. As a result, following perfectly the
-absolute path will lead to crushing plants of interest.
+You don't need to follow this path precisely, but you do need to stay within an interval around it.
+It is therefore possible to calculate more optimized trajectory to save time and improve your score.
+However, if the trajectory leaves the interval, this will result in a penalty on the score.
+
+The path does not follow the crop fields.
+As a result, following perfectly the absolute path will lead to crushing plants of interest.
+You can generate a more precise path using the survey file provided.
+For more information about this file, please refer to [this documentation](doc/plots_surveying.md).
+
 We also provide some ROS nodes:
 * `robot_to_world_localisation` to fuse odometry, GNSS and IMU using a Kalman filter
 * `path_matching` to compute the lateral and angular deviation to the path
@@ -54,10 +60,15 @@ package to visualize, convert or generate paths in this format using its python 
 
 The robot's path crosses a field containing various plants (beans, corn and wheat).
 You need to use the weeder to treat the entire plot.
-However, you'll need to have a good perception of the crop rows to avoid driving over them because
+However, you will need to have a good perception of the crop rows to avoid driving over them because
 the lines are not straight.
-There is also an obstacle in the ground which requires to lift the implement of the robot.
+There is also an obstacle in the ground which requires to raise the implement of the robot.
 Collisions with crops and implement will result in penalties to the score. 
+
+The localization of the plots is known before starting the simulation by reading [the plots
+surveying file](doc/plots_surveying.md).
+It allows to know when the implement should be raised or lowered.
+It is mandatory to follow the rows in the order specified in the plots surveying file.
 
 
 ### Avoiding obstacles
@@ -82,6 +93,9 @@ signal bouncing off the walls of the buildings.
 You will therefore need to take this degradation into account and try to maintain good localization
 by relying on the robot's other sensors.
 
+If you have not implemented this part of the challenge, it is possible to disable it, but it will
+induce penalties on the score.
+
 
 ### Robot control on sloping terrain
 
@@ -100,5 +114,6 @@ The score calculation is based on:
 * the surface covered by the weeder in the field
 
 There is also different source of penalties:
-
-TODO: write the penalties
+* crushing crops
+* colliding with obstacles
+* leaving the area around the reference path
