@@ -64,8 +64,8 @@ repositories:
     version: main
   src/romea_ros2/interfaces/sensors/romea_gps:
     type: git
-    url: https://github.com/Romea/romea-ros2-gps.git
-    version: main
+    url: https://github.com/FiraHackathon/romea_gps.git
+    version: fira_hackathon2025
   src/romea_ros2/interfaces/sensors/romea_imu:
     type: git
     url: https://github.com/Romea/romea-ros2-imu.git
@@ -239,5 +239,4 @@ repositories:
     type: git
     url: https://github.com/FiraHackathon/hackathon_evaluation.git
     version: main
-
 # vim: ft=yaml

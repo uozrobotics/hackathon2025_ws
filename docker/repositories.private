@@ -7,7 +7,7 @@ repositories:
   src/romea_core/romea_gps:
     type: git
     url: git@gitlab-ssh.irstea.fr:romea_core/romea_gps.git
-    version: main
+    version: fira_hackathon2025
   src/romea_core/romea_imu:
     type: git
     url: git@gitlab-ssh.irstea.fr:romea_core/romea_imu.git

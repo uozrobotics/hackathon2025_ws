@@ -93,7 +93,7 @@ signal bouncing off the walls of the buildings.
 You will therefore need to take this degradation into account and try to maintain good localization
 by relying on the robot's other sensors.
 
-If you have not implemented this part of the challenge, it is possible to disable it, but it will
+If you have not implemented this part of the challenge, it is possible to disable it (i.e. use the `main` branch of romea_gps instead of `fira_hackathon2025` in https://github.com/FiraHackathon/hackathon2025_ws/blob/main/docker/repositories#L68), but it will
 induce penalties on the score.
 
 
