@@ -34,4 +34,5 @@ cmd_output:
   priority: 10
   rate: 10.
 
+autostart: true
 debug: true
