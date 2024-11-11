@@ -7,7 +7,6 @@ Panels:
         - /Global Options1
         - /Status1
         - /evaluation1
-        - /evaluation1/crops1
       Splitter Ratio: 0.49872124195098877
     Tree Height: 732
   - Class: rviz_common/Selection
@@ -213,7 +212,7 @@ Visualization Manager:
           Background Alpha: 0.800000011920929
           Background Color: 0; 0; 0
           Class: rviz_2d_overlay_plugins/TextOverlay
-          Enabled: true
+          Enabled: false
           Foreground Alpha: 0.800000011920929
           Foreground Color: 25; 255; 240
           Invert Shadow: false
@@ -227,7 +226,7 @@ Visualization Manager:
             History Policy: Keep Last
             Reliability Policy: Reliable
             Value: /evaluation/evaluation/info_overlay
-          Value: true
+          Value: false
           font: DejaVu Sans Mono
           height: 128
           hor_alignment: left
@@ -239,7 +238,7 @@ Visualization Manager:
           width: 128
         - Class: rviz_2d_overlay_plugins/PieChartOverlay
           Enabled: true
-          Name: p1 cover
+          Name: p1 cover.
           Topic:
             Depth: 5
             Durability Policy: Volatile
@@ -257,17 +256,45 @@ Visualization Manager:
           left: 10
           max color: 53; 222; 15
           max color change threthold: 0.800000011920929
-          max value: 1
+          max value: 100
           med color: 220; 191; 28
           med color change threthold: 0.4000000059604645
           min value: 0
           show caption: true
-          size: 90
+          size: 100
           text size: 12
-          top: 140
+          top: 10
         - Class: rviz_2d_overlay_plugins/PieChartOverlay
           Enabled: true
-          Name: p2 cover
+          Name: p1 crush.
+          Topic:
+            Depth: 5
+            Durability Policy: Volatile
+            History Policy: Keep Last
+            Reliability Policy: Reliable
+            Value: /evaluation/mixed_field/crushed
+          Value: true
+          auto color change: true
+          background color: 0; 0; 0
+          backround alpha: 0
+          clockwise rotate direction: true
+          foreground alpha: 0.699999988079071
+          foreground alpha 2: 0.4000000059604645
+          foreground color: 53; 222; 15
+          left: 120
+          max color: 226; 60; 19
+          max color change threthold: 0.05000000074505806
+          max value: 100
+          med color: 220; 191; 28
+          med color change threthold: 0.029999999329447746
+          min value: 0
+          show caption: true
+          size: 100
+          text size: 12
+          top: 10
+        - Class: rviz_2d_overlay_plugins/PieChartOverlay
+          Enabled: true
+          Name: p2 cover.
           Topic:
             Depth: 5
             Durability Policy: Volatile
@@ -282,15 +309,43 @@ Visualization Manager:
           foreground alpha: 0.699999988079071
           foreground alpha 2: 0.4000000059604645
           foreground color: 226; 60; 19
-          left: 110
+          left: 10
           max color: 53; 222; 15
           max color change threthold: 0.800000011920929
-          max value: 1
+          max value: 100
           med color: 220; 191; 28
           med color change threthold: 0.4000000059604645
           min value: 0
           show caption: true
-          size: 90
+          size: 100
+          text size: 12
+          top: 140
+        - Class: rviz_2d_overlay_plugins/PieChartOverlay
+          Enabled: true
+          Name: p2 crush.
+          Topic:
+            Depth: 5
+            Durability Policy: Volatile
+            History Policy: Keep Last
+            Reliability Policy: Reliable
+            Value: /evaluation/sloping_field/crushed
+          Value: true
+          auto color change: true
+          background color: 0; 0; 0
+          backround alpha: 0
+          clockwise rotate direction: true
+          foreground alpha: 0.699999988079071
+          foreground alpha 2: 0.4000000059604645
+          foreground color: 53; 222; 15
+          left: 120
+          max color: 226; 60; 19
+          max color change threthold: 0.05000000074505806
+          max value: 100
+          med color: 220; 191; 28
+          med color change threthold: 0.029999999329447746
+          min value: 0
+          show caption: true
+          size: 100
           text size: 12
           top: 140
       Enabled: true
@@ -407,7 +462,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/ThirdPersonFollower
-      Distance: 26.94257926940918
+      Distance: 20.762617111206055
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
