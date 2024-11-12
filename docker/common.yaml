@@ -7,7 +7,9 @@ services:
             useradd -u ${UID-} -g ${GID-} -s /bin/bash -d $HOME -m -G dialout $USER
     image: tirrex_workspace:$USER  # add username to avoid image collision on multi-user systems
     volumes:
-      - $HOME:$HOME:Z
+      - $HOME/.ros:$HOME/.ros:Z  # for logs and records
+      - $WORKSPACE:$WORKSPACE:Z
+      - $HOME/.config/ros.org:$HOME/.config/ros.org:Z  # for rqt tools
     env_file:
       - ../.env
     environment:
