@@ -1,0 +1,4 @@
+#!/bin/bash
+cd "$(dirname -- "${BASH_SOURCE[0]}")/.."
+
+vcs -nsw6 custom --args pull --ff-only

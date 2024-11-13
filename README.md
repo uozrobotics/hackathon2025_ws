@@ -135,10 +135,14 @@ The option `--rm` allows to automatically delete the container when the command 
 
 You can update the ROS packages using:
 ```
+./scripts/pull
+```
+or simply
+```
 vcs pull -nw6
 ```
 
-If you want to update repositories, switch to the correct branches and update gazebo models, you
+If you want to load repositories, switch to the correct branches and update gazebo models, you
 can re-run the installation script
 ```
 ./scripts/update
