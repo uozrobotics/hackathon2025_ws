@@ -5,6 +5,9 @@
 remote_controller:
   type: joystick
   available_mode: all
+# keyboard:
+#   type: joystick
+#   available_mode: all
 
 lms151:
   type: lidar
