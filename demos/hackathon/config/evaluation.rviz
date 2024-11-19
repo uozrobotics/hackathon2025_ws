@@ -357,7 +357,7 @@ Visualization Manager:
             Durability Policy: Volatile
             History Policy: Keep Last
             Reliability Policy: Reliable
-            Value: /evaluation/collisions_count
+            Value: /evaluation/evaluation/collisions_count
           Value: true
           auto color change: false
           background color: 0; 0; 0
