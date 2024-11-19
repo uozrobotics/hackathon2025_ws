@@ -95,6 +95,7 @@ repositories:
     url: git@gitlab-ssh.irstea.fr:romea_ros2/interfaces/teleoperation/romea_teleop.git
     version: main
   src/romea_ros2/interfaces/teleoperation/pynput_teleop:
+    type: git
     url: git@forgemia.inra.fr:tscf/ros2/pynput_teleop.git
     version: main
 
