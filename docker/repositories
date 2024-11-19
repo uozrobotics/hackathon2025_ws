@@ -96,7 +96,7 @@ repositories:
     version: main
   src/romea_ros2/interfaces/teleoperation/pynput_teleop:
     type: git
-    url: git@forgemia.inra.fr:tscf/ros2/pynput_teleop.git
+    url: https://forgemia.inra.fr/tscf/ros2/pynput_teleop.git
     version: main
 
   # -------- ros2 vehicle interfaces --------------------------
