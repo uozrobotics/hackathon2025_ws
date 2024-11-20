@@ -17,7 +17,8 @@ elements.
 The robot is equipped with a hoeing implement to treat the plot and a set of sensors to perceive the
 environment and localize the robot.
 All the elements are interfaced using ROS2 topics, services and actions.
-The description of this interface [is available here](robot_interface.md).
+The description of the ROS interface [is available here](robot_control.md).
+There is also a [documentation of the robot configuration](robot_configuration.md).
 
 The final phase of the competition, to be held at FIRA 2025, will replace the Gazebo simulator with
 4DV simulator.
@@ -79,7 +80,7 @@ Some are mobile and move cross the robot path.
 There are also moving obstacles that can be represented by humans or other robots.
 Thus, you need to use the exteroceptive sensors of the robot and compute an avoidance path in real
 time.
-The sensors are described in the [robot interface documentation](robot_interface.md).
+The sensors are configurable ([description of the configuration](devices_configuration.md)).
 Collisions with obstacles or any element of the environment will result in penalties to the score.
 
 
@@ -110,10 +111,10 @@ The score will be calculated based on the measurement of the lateral deviation, 
 
 The score calculation is based on:
 * the total time to reach the end of the path
-* the distance of the robot to the path (except in the crops field)
 * the surface covered by the weeder in the field
 
 There is also different source of penalties:
 * crushing crops
 * colliding with obstacles
-* leaving the area around the reference path
+* keeping implement down outside the crop fields
+* leaving the geofence

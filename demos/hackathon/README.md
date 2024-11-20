@@ -77,4 +77,4 @@ started.
 * [Configuration of the robot](/doc/robot_configuration.md)
 * [Configuration of the devices](/doc/devices_configuration.md)
 * [Description of the robot control node](/doc/robot_control.md)
-* [Description of the provided data files](/doc/plot_surveying.md)
+* [Description of the provided data files](/doc/plots_surveying.md)
