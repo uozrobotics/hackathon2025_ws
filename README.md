@@ -12,6 +12,15 @@ developed for the [_roboterrium_ platform of the TIRREX project](https://tirrex.
 * [Architecture of the workspace](#architecture-of-the-workspace)
 * [FAQ](#faq)
 
+Other documents available:
+
+* [Scenario of the challenge](/doc/challenge.md)
+* [Configuration of the simulation](/doc/challenge_configuration.md)
+* [Configuration of the robot](/doc/robot_configuration.md)
+* [Configuration of the devices](/doc/devices_configuration.md)
+* [Description of the robot control node](/doc/robot_control.md)
+* [Description of the provided data files](/doc/plot_surveying.md)
+
 
 ## Installation
 
@@ -91,7 +100,7 @@ This command will:
 * pull the latest image containing a ROS environment with all the workspace dependencies installed
 * build a local image based on the previous one but including a copy of your local
   user in order to execute every command using the same user as the host system
-* run the `compile` service that execute a `catkin build` command to compile everything
+* run the `compile` service that execute a `colcon build` command to compile everything
 
 If you modify some packages of the workspace, you need to re-execute this command regularly.
 
