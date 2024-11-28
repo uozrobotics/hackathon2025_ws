@@ -2,8 +2,8 @@ x-yaml-anchors:  # create anchors "&something" that can be referenced using "*so
   base: &base
     extends:
       file: ../../docker/common.yaml
-      # service: x11_base
-      service: x11_gpu  # use this service if you want to use nvidia GPU
+      service: x11_base
+      # service: x11_gpu  # use this service if you want to use nvidia GPU
     volumes:
       - ./config:/config:Z
       # - /tmp:/tmp  # uncomment to read generated files in /tmp
