@@ -2,12 +2,12 @@
 # by adding lines in this file and creating the corresponding file in the "devices" directory.
 # Possible values for 'available_mode': [none, simulation, live, all]
 
-remote_controller:
+#remote_controller:
+#  type: joystick
+#  available_mode: all
+keyboard:
   type: joystick
   available_mode: all
-# keyboard:
-#   type: joystick
-#   available_mode: all
 
 lms151:
   type: lidar
