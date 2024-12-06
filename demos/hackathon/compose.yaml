@@ -43,7 +43,7 @@ services:
         robot_config_directory:=/config/robot
         mode:=simulation_gazebo_classic
         robot_namespace:=robot
-        trajectory_filename:=uoz_custom.traj
+        trajectory_filename:=test01.traj
 
   path_recorder:  # record a trajectory file from the current localization
     <<: [*base]
