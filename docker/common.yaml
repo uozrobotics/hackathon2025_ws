@@ -5,7 +5,7 @@ services:
         FROM gitlab-registry.irstea.fr/romea_projects/tirrex/tirrex_workspace:hackathon
         RUN groupadd -g ${GID-} $USER && \
             useradd -u ${UID-} -g ${GID-} -s /bin/bash -d $HOME -m -G dialout $USER
-    image: tirrex_workspace:$USER  # add username to avoid image collision on multi-user systems
+    image: hackathon2025_ws:$USER  # add username to avoid image collision on multi-user systems
     volumes:
       - $HOME/.ros:$HOME/.ros:Z  # for logs and records
       - $WORKSPACE:$WORKSPACE:Z
